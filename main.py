@@ -4,7 +4,7 @@
 """
 Created on Sun Jul  1 17:47:26 2018
 
-@author: prasunsarkar
+@author: shreethaanu
 """
 
 from selenium import webdriver
@@ -19,7 +19,7 @@ import csv
     
 # DB Connect & fetch
 
-db = pymysql.connect("mmdev.c1s42kjfhzox.ap-south-1.rds.amazonaws.com","root","milmila123","mm_scarpe_data")
+db = pymysql.connect("servername","username","password","DBName")
 
 cursor = db.cursor()
 
@@ -31,7 +31,7 @@ myList = list(itertools.chain.from_iterable(data))
 
 print(myList)
 
-driver = webdriver.Chrome('/Users/prasunsarkar/Downloads/chromedrivers')
+driver = webdriver.Chrome('/Users/shreethaanu/Downloads/chromedrivers')
 
 driver.get("https://web.whatsapp.com/")
 
@@ -50,9 +50,7 @@ for row in read :
     for line in row:
         try:
             name = (line.rstrip('\n'))
-            text = """Dear Partner/Retailer/Wholesaler, 
-Special promotion for limited period- Absolutely Free Online Offers on select products at Milmila (B2B Ecommerce Company). Just Pay Rs. 49 for shipping charges and have it delivered to you at no extra cost 
-Make your business, a happy business @ https://goo.gl/8LWZ9Y
+            text = """ Your message to send can be here !!
          """.format(name)
             inp_xpath_search = "//input[@title='Search or start new chat']"
             input_box_search = wait.until(EC.presence_of_element_located((
